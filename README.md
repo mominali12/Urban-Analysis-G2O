@@ -12,22 +12,22 @@ This blog post is going to be pretty long! Here’s an overview of the different
 - [Evaluation](#evaluation)
 - [Conclusion](#conclusion)
 
-## 2. Introduction
-  ### 2.1 The Problem
-  ### 2.2 The Solution
-  ### 2.3 System Requirements
+## Introduction
+  ### The Problem
+  ### The Solution
+  ### System Requirements
   
-## 3. Dataset
-  ### 3.1 Village Finder
-  ### 3.2 Our Dataset
+## Dataset
+  ### Village Finder
+  ### Our Dataset
   
-## 4. Building Segmentation
+## Building Segmentation
 
-## 5. Multi Task Learning
+## Multi Task Learning
 
-## 6. Evaluating
+## Evaluating
 
-## 7. Conclusion
+## Conclusion
 asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
 
 ## Welcome to GitHub Pages
