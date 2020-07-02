@@ -1,6 +1,6 @@
 ## Abstract
 
-We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources.However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task.To tackle all such intricacies, we propose a deep learning approach for classifying different areas using satellite imagery. We propose a multi-task learning framework that learns variety of features from the satellite images and findsthe one most effective for classifying planned or unplanned developments. For training and evaluation of our proposed method we have compiled a dataset containing labelled satellite images  of three geographically diverse cities of Pakistan. Our experimental results validate the proposed technique
+We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources. However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task. To tackle all such intricacies, we propose a deep learning approach for classifying different areas using satellite imagery. We propose a multi-task learning framework that learns variety of features from the satellite images and finds the one most effective for classifying planned or unplanned developments. For training and evaluation of our proposed method we have compiled a dataset containing labelled satellite images  of three geographically diverse cities of Pakistan. Our experimental results validate the proposed technique
 
 ## 1. Overview
 This blog post is going to be pretty long! Here’s an overview of the different sections. If you want to skip ahead, just click the section title to go there.
@@ -13,7 +13,16 @@ This blog post is going to be pretty long! Here’s an overview of the different
 - [Conclusion](#conclusion)
 
 ## Introduction
-#### The Problem
+Majority  of  the  urban  applications:    development  ofcities, urban planning, provisioning municipal services, andcadastral inspection require detailed information and obser-vation of an area.  Generally, such information is collected by utilizing on ground authorities and volunteers. However, collecting all this information via on-ground forces is not feasible. Consequently, satellite imagery is being used for the purpose of ground information collection. Over the last decade deep neural networks have shown exceptional capability to learn complex patterns in digital data.  These techniques can be applied for detecting different patterns and structures in satellite imagery and classify satellite images as planned or unplanned localities.
+
+### The Problem
+We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources.However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task.
+
+### The Solution
+To tackle all such intricacies, we propose a deep learning approach for classifying different areas using satellite imagery. We propose a multi-task learning framework that learns variety of features from the satellite images and finds the one most effective for classifying planned or unplanned developments.
+
+### System Requirements
+
   
 ## Dataset
 ### Village Finder
