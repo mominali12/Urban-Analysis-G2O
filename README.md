@@ -13,13 +13,13 @@ This blog post is going to be pretty long! Here’s an overview of the different
 - [Conclusion](#conclusion)
 
 ## Introduction
-  ### The Problem
-  ### The Solution
-  ### System Requirements
+### The Problem
+### The Solution
+### System Requirements
   
 ## Dataset
-  ### Village Finder
-  ### Our Dataset
+### Village Finder
+### Our Dataset
   
 ## Building Segmentation
 
