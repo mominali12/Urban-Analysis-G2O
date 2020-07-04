@@ -8,7 +8,7 @@ This blog post is going to be pretty long! Here’s an overview of the different
 - [Dataset](#dataset)
 - [Building Segmentation](#building-segmentation)
 - [Multi Task Learning](#multi-task-learning)
-- [Analyical Hirearchical Processing](#analyical-hirearchical-processing
+- [Analyical Hirearchical Processing](#analyical-hirearchical-processing)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -80,6 +80,11 @@ In order to train our task specific models more efficiently we used multi task l
 Architecture diagram for task specific models is as follow:<br><br>
 **Multi-task learning Model**
 ![](/images/Architectures/phase2/experiment3.png)
+
+## Analyical Hirearchical Processing
+In the last phase we calculate Planned Locality Index for each image. To convert our predicted feature vectors into an interpretable score depicting planned index of a locality we have applied Analytical Hierarchical Processing (AHP). AHP allows us to scale down the complexity of calculating planned index scores. It generates a single value that accommodates all the different features of the image such as buildings density, greenery sparsity, buildings layout etc. This way we reduce our high dimensional space to a scalar value.<br>
+Each image in our training dataset had a label vector of length 12. To implement the AHP procedure we had to prepare 1-9 scale pair-wise comparison rubric. This rubric contained comparison between each label and based on this comparison we get scores corresponding to each label. These scores represent how much that label contributes towards the planned locality index calculated for an input image. Hence, AHP procedure helps us assign priorities for each label.<br>
+We  use  this  priorities  **vector−→P** and multiply it with the **vector−→L** containing the predicted labels of the image. This results in the planned locality index score for the subject image. Images with planned index score higher than **HELLLLLOOOOJEEE** are considered Planned localities and other are tagged as unplanned localities.
 
 ## Conclusion
 We tried to solve a challenging task of classiﬁcation of planned and unplanned developments. Overlapping features of these localities makes the job at hand difﬁcult. We have introduced a dataset capturing diverse geographical regions of Pakistan having different buildings density, greenery density, regular or irregular buildings layout and other minor features that could help,develop a generalized model to solve the classiﬁcation problem at hand. Our ﬁnal solution, multi-task learning using VGG-16 as backbone, allows us to capture features that are equally important for detection of different objects speciﬁc to planned /unplannedlocalities. These features are then optimized for speciﬁc object detections using the branching sub-nets. Using these branching sub-nets, we can identify areas having high building density, areas with regular buildings layout and patches with dense greenery. We can improve our results by utilizing a pixel level labelled dataset. A larger dataset would also give us room to train deep networks and achieve better accuracy. Furthermore, we can utilize the results generated from sub-nets and feed them to Analytic hierarchy process (AHP) to generate planned development index which would score a satellite image to be called a planned locality or unplanned locality. This approach could help us identify the most important features that contribute towards classiﬁcation of a locality as planned or unplanned development. AHP ﬁnds the objects that maximizes the planned development index of an image
