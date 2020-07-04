@@ -41,7 +41,7 @@ In this phase we filtered out images containing built structures using deep lear
 #### Building Segmentation
 In the first phase, semantic segmentation is incorporated, using U-net architecture, for filtering images which have buildings. Semantic segmentation is process of labelling each pixel of an image belonging to similar class. Village Finder dataset was fed to U-net architecture for training purpose. In testing phase, Pakistan’s satellite images data is passed to this model which outputs only those images where building density is greater than 0.1%. U-net architecture, shown in Fig. 4, consists of two parts: encoder and decoder. Encoder part consists of 3x3 convolutional layers and 2x2 max pooling layers. However, decoder part consists of 2x2 transposed 2d convolutions and 1x1 up convolutional layers. U-net gives the output image of the same size as of input image.<br>
 **Model**
-![](images/Architectures/phase 1/UNet.png)
+![](images/Architectures/phase%1/UNet.png)
 **Results**<br>
 ![](images/Results/phase1/Results_phase1.png)
 
