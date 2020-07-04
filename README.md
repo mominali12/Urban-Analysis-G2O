@@ -42,7 +42,7 @@ In this phase we filtered out images containing built structures using deep lear
 In the first phase, semantic segmentation is incorporated, using U-net architecture, for filtering images which have buildings. Semantic segmentation is process of labelling each pixel of an image belonging to similar class. Village Finder dataset was fed to U-net architecture for training purpose. In testing phase, Pakistan’s satellite images data is passed to this model which outputs only those images where building density is greater than 0.1%. U-net architecture, shown in Fig. 4, consists of two parts: encoder and decoder. Encoder part consists of 3x3 convolutional layers and 2x2 max pooling layers. However, decoder part consists of 2x2 transposed 2d convolutions and 1x1 up convolutional layers. U-net gives the output image of the same size as of input image.<br><br>
 **Model**<br><br>
 ![](images/Architectures/phase1/UNet.png)
-**Results**<br><br>
+<br><br>**Results**<br><br>
 ![](images/Results/phase1/Results_phase1.png)
 
 ### Phase 2
@@ -52,11 +52,10 @@ Now that we had images containing built structures, we needed to learn different
 Since we had to predict multiple labels corresponding to each image we opted for multi-label classification of images. Using the images (obtained through building segmentation model) as input we trained mutiple models having different architectures. For every model we had used sigmoid with binary cross entropy as loss function. Results obtained for different models are given below:<br><br>
 **Results**<br><br>
 ![](images/Results/phase2/Results_experiment1.png)
-Best results were obtained using our simple multi label model. Architecture diagram for simple multi label model is as follow:<br><br>
+<br><br>Best results were obtained using our simple multi label model. Architecture diagram for simple multi label model is as follow:<br><br>
 **Simple multi label Model**<br><br>
 ![](/images/Architectures/phase2/experiment1.png)
-
-Although the results were not bad, there was one issue with this approach. At times the model missed some important labels such as layout, building density etc.
+<br><br>Although the results were not bad, there was one issue with this approach. At times the model missed some important labels such as layout, building density etc.
 
 #### Task Specific Models
 To ensure that we don't miss any label we tried using task specific models. Since our predicted labels could be divided into 4 tasks
@@ -69,29 +68,28 @@ We designed separate models for each task. This allowed us to ensure that we don
 
 **Results**<br><br>
 ![](images/Results/phase2/Results_experiment2.png)
-Architecture diagram for task specific models is as follow:<br><br>
+<br><br>Architecture diagram for task specific models is as follow:<br><br>
 
 **Task Specific Model**<br><br>
 ![](/images/Architectures/phase2/experiment2.png)
-
-Since all the predicted labels were related to each other in one way or the other, hence, sharing the updated weights to train all the models simultaneously might improve the results.
+<br><br>Since all the predicted labels were related to each other in one way or the other, hence, sharing the updated weights to train all the models simultaneously might improve the results.
 
 #### Multi-task Learning
 In order to train our task specific models more efficiently we used multi task learning. This method allows different models to share weights with each other and allows the models to generalize better. We used trained VGG16 as backbone of the multi-task architecture and the sub-networks all had similar architecture except for the last dense layer of these subnets. In the last layer softmax with binary cross entropy was used for multi-class problems (prediction of building density, greenery sparsity and layout)  and sigmoid with categorical cross entropy was used for multi-label problem(Prediction of Exposed Soil, Large buildings grass and trees). Results obtained for different experiments are shown below:<br><br>
 
 **Results**<br><br>
 ![](images/Results/phase2/Results_experiment3.png)
-Architecture diagram for task specific models is as follow:<br><br>
+<br><br>Architecture diagram for task specific models is as follow:<br><br>
 
 **Multi-task learning Model**<br><br>
 ![](/images/Architectures/phase2/experiment3.png)
 
 ## Analyical Hirearchical Processing
 In the last phase of our project we calculated Planned Locality Index for each image. To convert our predicted labels for each task into an interpretable score depicting planned index of a locality we have applied Analytical Hierarchical Processing (AHP). AHP allows us to scale down the complexity of calculating planned index scores. It generates a single value that accommodates all the different features of the image such as buildings density, greenery sparsity, buildings layout etc. This way we reduce our high dimensional space to a scalar value.<br>
-Each image in our training dataset had a label vector of length 12. To implement the AHP procedure we had to prepare 1-9 scale pair-wise comparison rubric. This rubric contained comparison between each label and based on this comparison we get scores corresponding to each label. These scores represent how much that label contributes towards the planned locality index calculated for an input image. Hence, AHP procedure helps us assign priorities for each label.<br>
-![](/images/AHP/labels_priority_table)
+Each image in our training dataset had a label vector of length 12. To implement the AHP procedure we had to prepare 1-9 scale pair-wise comparison rubric. This rubric contained comparison between each label and based on this comparison we get scores corresponding to each label. These scores represent how much that label contributes towards the planned locality index calculated for an input image. Hence, AHP procedure helps us assign priorities for each label.<br><br>
+![](/images/Results/phase3/labels_priority_table.JPG)
 
-We  use  this  priorities  vector **p** and multiply it with the vector **l** containing the predicted labels of the image. This results in the planned locality index score for the subject image. Images with planned index score higher than **30** are considered Planned localities and other are tagged as unplanned localities.
+<br><br>We  use  this  priorities  vector **p** and multiply it with the vector **l** containing the predicted labels of the image. This results in the planned locality index score for the subject image. Images with planned index score higher than **30** are considered Planned localities and other are tagged as unplanned localities.
 
 ## Conclusion
 We tried to solve a challenging task of classiﬁcation of planned and unplanned developments. Overlapping features of these localities makes the job at hand difﬁcult. We have introduced a dataset capturing diverse geographical regions of Pakistan having different buildings density, greenery density, regular or irregular buildings layout and other minor features that could help,develop a generalized model to solve the classiﬁcation problem at hand. Our ﬁnal solution, multi-task learning using VGG-16 as backbone, allows us to capture features that are equally important for detection of different objects speciﬁc to planned /unplannedlocalities. These features are then optimized for speciﬁc object detections using the branching sub-nets. Using these branching sub-nets, we can identify areas having high building density, areas with regular buildings layout and patches with dense greenery. We can improve our results by utilizing a pixel level labelled dataset. A larger dataset would also give us room to train deep networks and achieve better accuracy. Furthermore, we can utilize the results generated from sub-nets and feed them to Analytic hierarchy process (AHP) to generate planned development index which would score a satellite image to be called a planned locality or unplanned locality. This approach could help us identify the most important features that contribute towards classiﬁcation of a locality as planned or unplanned development. AHP ﬁnds the objects that maximizes the planned development index of an image
