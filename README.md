@@ -41,7 +41,7 @@ In this phase we filtered out images containing built structures using deep lear
 #### Building Segmentation
 In the first phase, semantic segmentation is incorporated, using U-net architecture, for filtering images which have buildings. Semantic segmentation is process of labelling each pixel of an image belonging to similar class. Village Finder dataset was fed to U-net architecture for training purpose. In testing phase, Pakistan’s satellite images data is passed to this model which outputs only those images where building density is greater than 0.1%. U-net architecture, shown in Fig. 4, consists of two parts: encoder and decoder. Encoder part consists of 3x3 convolutional layers and 2x2 max pooling layers. However, decoder part consists of 2x2 transposed 2d convolutions and 1x1 up convolutional layers. U-net gives the output image of the same size as of input image.<br>
 **Model**
-![](images/Architectures/phase%1/UNet.png)
+![](images/Architectures/phase%201/UNet.png)
 **Results**<br>
 ![](images/Results/phase1/Results_phase1.png)
 
@@ -54,7 +54,7 @@ Since we had to predict multiple labels corresponding to each image we opted for
 ![](images/Results/phase2/Results_experiment1.png)
 Best results were obtained using our simple multi label model. Architecture diagram for simple multi label model is as follow:<br>
 **Simple multi label Model**
-![](/images/Architectures/phase 2/experiment1.png)
+![](/images/Architectures/phase%202/experiment1.png)
 
 Although the results were not bad, there was one issue with this approach. At times the model missed some important labels such as layout, building density etc.
 
@@ -69,7 +69,7 @@ we designed separate models for each task. This allowed us to ensure that we don
 ![](images/Results/phase2/Results_experiment2.png)
 Architecture diagram for task specific models is as follow:<br>
 **Simple multi label Model**
-![](/images/Architectures/phase 2/experiment2.png)
+![](/images/Architectures/phase%202/experiment2.png)
 
 Since all the predicted labels were related to each other in one way or the other, hence, sharing the updated weights to train all the models simultaneously might improve the results.
 
@@ -79,7 +79,7 @@ In order to train our task specific models more efficiently we used multi task l
 ![](images/Results/phase2/Results_experiment3.png)
 Architecture diagram for task specific models is as follow:<br>
 **Simple multi label Model**
-![](/images/Architectures/phase 2/experiment3.png)
+![](/images/Architectures/phase%202/experiment3.png)
 
 ## Conclusion
 We tried to solve a challenging task of classiﬁcation of planned and unplanned developments. Overlapping features of these localities makes the job at hand difﬁcult. We have introduced a dataset capturing diverse geographical regions of Pakistan having different buildings density, greenery density, regular or irregular buildings layout and other minor features that could help,develop a generalized model to solve the classiﬁcation problem at hand. Our ﬁnal solution, multi-task learning using VGG-16 as backbone, allows us to capture features that are equally important for detection of different objects speciﬁc to planned /unplannedlocalities. These features are then optimized for speciﬁc object detections using the branching sub-nets. Using these branching sub-nets, we can identify areas having high building density, areas with regular buildings layout and patches with dense greenery. We can improve our results by utilizing a pixel level labelled dataset. A larger dataset would also give us room to train deep networks and achieve better accuracy. Furthermore, we can utilize the results generated from sub-nets and feed them to Analytic hierarchy process (AHP) to generate planned development index which would score a satellite image to be called a planned locality or unplanned locality. This approach could help us identify the most important features that contribute towards classiﬁcation of a locality as planned or unplanned development. AHP ﬁnds the objects that maximizes the planned development index of an image
