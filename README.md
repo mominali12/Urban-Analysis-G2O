@@ -7,9 +7,7 @@ This blog post is going to be pretty long! Here’s an overview of the different
 
 - [Introduction](#introduction)
 - [Dataset](#dataset)
-- [Building Segmentation](#building-segmentation)
-- [Multi Task Learning](#multi-task-learning)
-- [Analytical Hirearchical Processing](#analyical-hirearchical-processing)
+- [Methodology](#methodology)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -111,14 +109,14 @@ We tried to solve a challenging task of classiﬁcation of planned and unplanned
 
 <a href="https://github.com/mominali12"><img src="https://avatars2.githubusercontent.com/u/41184740?s=400&u=38c9fd83c65fe074ce6414014a7f323a4c68663e&v=4" title="Momin Ali" width="80" height="80"></a>
 
-<a href="https://github.com/mominali12"><img src="https://avatars2.githubusercontent.com/u/41184740?s=400&u=38c9fd83c65fe074ce6414014a7f323a4c68663e&v=4" title="Momin Ali" width="80" height="80"></a>
+<a href="https://github.com/HadiaIrshad"><img src="https://avatars0.githubusercontent.com/u/43548605?s=400&v=4" title="Hadia Irshad" width="80" height="80"></a>
 
-<a href="https://github.com/mominali12"><img src="https://avatars2.githubusercontent.com/u/41184740?s=400&u=38c9fd83c65fe074ce6414014a7f323a4c68663e&v=4" title="Momin Ali" width="80" height="80"></a>
+<a href="https://github.com/kainataltaf19014"><img src="https://avatars2.githubusercontent.com/u/64073813?s=400&v=4" title="Kainat Altaf" width="80" height="80"></a>
 
-<a href="https://github.com/mominali12"><img src="https://avatars2.githubusercontent.com/u/41184740?s=400&u=38c9fd83c65fe074ce6414014a7f323a4c68663e&v=4" title="Momin Ali" width="80" height="80"></a>
+<a href="https://github.com/nadeemriaz305"><img src="https://avatars1.githubusercontent.com/u/21328955?s=400&v=4" title="H.M Nadeem" width="80" height="80"></a>
 
 [//]: contributor-faces
 
-## License
+### License
 
 MIT ©
