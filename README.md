@@ -68,7 +68,7 @@ we designed separate models for each task. This allowed us to ensure that we don
 **Results**
 ![](images/Results/phase2/Results_experiment2.png)
 Architecture diagram for task specific models is as follow:<br><br>
-**Simple multi label Model**
+**Task Specific Model**
 ![](/images/Architectures/phase2/experiment2.png)
 
 Since all the predicted labels were related to each other in one way or the other, hence, sharing the updated weights to train all the models simultaneously might improve the results.
@@ -78,7 +78,7 @@ In order to train our task specific models more efficiently we used multi task l
 **Results**
 ![](images/Results/phase2/Results_experiment3.png)
 Architecture diagram for task specific models is as follow:<br><br>
-**Simple multi label Model**
+**Multi-task learning Model**
 ![](/images/Architectures/phase2/experiment3.png)
 
 ## Conclusion
