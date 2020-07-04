@@ -51,7 +51,7 @@ Now that we had images containing built structures, we needed to learn different
 #### Multi-label classification
 Since we had to predict multiple labels corresponding to each image we opted for multi-label classification of images. Using the images (obtained through building segmentation model) as input we trained mutiple models having different architectures. For every model we had used sigmoid with binary cross entropy as loss function. Results obtained for different models are given below:<br><br>
 **Results**
-![](images/Results/phase2/experiment1.png)
+![](images/Results/phase2/Results_experiment1.png)
 Best results were obtained using our simple multi label model. Architecture diagram for simple multi label model is as follow:<br><br>
 **Simple multi label Model**
 ![](/images/Architectures/phase2/experiment1.png)
