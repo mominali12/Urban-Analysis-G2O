@@ -1,3 +1,4 @@
+
 ## Abstract
 We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources. However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task. To tackle all such intricacies, we propose a deep learning approach for classifying different areas using satellite imagery. We propose a multi-task learning framework that learns variety of features from the satellite images and finds the one most effective for classifying planned or unplanned developments. For training and evaluation of our proposed method we have compiled a dataset containing labelled satellite images  of three geographically diverse cities of Pakistan. Our experimental results validate the proposed technique
 
@@ -8,23 +9,23 @@ This blog post is going to be pretty long! Here’s an overview of the different
 - [Dataset](#dataset)
 - [Building Segmentation](#building-segmentation)
 - [Multi Task Learning](#multi-task-learning)
-- [Analyical Hirearchical Processing](#analyical-hirearchical-processing)
+- [Analytical Hirearchical Processing](#analyical-hirearchical-processing)
 - [Conclusion](#conclusion)
 
 ## Introduction
-Majority  of  the  urban  applications:    development  ofcities, urban planning, provisioning municipal services, andcadastral inspection require detailed information and obser-vation of an area.  Generally, such information is collected by utilizing on ground authorities and volunteers. However, collecting all this information via on-ground forces is not feasible. Consequently, satellite imagery is being used for the purpose of ground information collection. Over the last decade deep neural networks have shown exceptional capability to learn complex patterns in digital data.  These techniques can be applied for detecting different patterns and structures in satellite imagery and classify satellite images as planned or unplanned localities.
+Majority of the urban applications: development of cities, urban planning, provisioning municipal services, and cadastral inspection requires detailed information and observation of an area. Generally, such information is collected by utilizing on ground authorities and volunteers. However, collecting all this information via on-ground forces is not feasible. Consequently, satellite imagery is being used for the purpose of ground information collection. Over the last decade deep neural networks have shown exceptional capability to learn complex patterns in digital data. These techniques can be applied for detecting different patterns and structures in satellite imagery and classify satellite images as planned or unplanned localities.
 
 ### The Problem
-We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources.However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task.
+We attempted to address the problem of classifying planned/unplanned localities. Localities categorization could assist municipality in proper allocation of resources. However,  a variety of factors have to be incorporated for any such classification, which makes this a complex task.
 
 ### The Solution
-We propose a deep learning approach for classifying different areas using Remote sensing data. We propose a multi-task learning framework that learns variety of features from the satellite images and finds the one most effective for classifying planned or unplanned developments. Using these features we calculate planned locality index for each image by applying analytical hirearchical processing technique.
+We propose a deep learning approach for classifying different areas using Remote sensing data. We developed a multi-task learning architecture that learns variety of features from the satellite images and finds the one most effective for classifying planned or unplanned developments. Using these features we calculate planned locality index for each image by applying analytical hierarchical processing technique.
 
 ### Software and Hardware
 We have mainly used Python, NumPy and Keras to implement our solution. All our experiments have been performed using Google's colaboratory service. To replicate these experiments successfully GPU based runtime of colaboratory is required.
   
 ## Dataset
-For this research project we have used two different datasets. The first one is called Village Finder **Village Finder paper ka reference**. We used this dataset to train a model for building segmentation. To train our multi task learning model we had compiled a separate data set containing satellite images of different cities of pakistan.
+For this research project we have used two different datasets. The first one is called Village Finder <sup>[1]()</sup>. We used this dataset to train a model for building segmentation. To train our multi task learning model we had compiled a separate data set containing satellite images of different cities of pakistan.
 
 ### Village Finder
 Village Finder Dataset contains 3566 images where each image is of 256 x 256 pixels. Corresponding to each image we have masked images that act as labels for building segments in that image. We used this dataset to train a model for building segmentation. This model is later utilized to extract images containing built structures during compilation of  our main dataset for this project.
@@ -44,7 +45,7 @@ Our project is divided into three phases. In the first phase, semantic segmentat
 In this phase we filtered out images containing built structures using deep learning technique called semantic segmentation.
 
 #### Building Segmentation
-In the first phase, semantic segmentation is incorporated, using U-net architecture, for filtering images which have buildings. Semantic segmentation is process of labelling each pixel of an image belonging to similar class. Village Finder dataset was fed to U-net architecture for training purpose. In testing phase, Pakistan’s satellite images data is passed to this model which outputs only those images where building density is greater than 0.1%. U-net architecture, shown in Fig. 4, consists of two parts: encoder and decoder. Encoder part consists of 3x3 convolutional layers and 2x2 max pooling layers. However, decoder part consists of 2x2 transposed 2d convolutions and 1x1 up convolutional layers. U-net gives the output image of the same size as of input image.<br><br>
+Semantic segmentation is process of labelling each pixel of an image belonging to similar class. Village Finder dataset was fed to U-net architecture for training purpose. In testing phase, Pakistan’s satellite images data is passed to this model which outputs only those images where building density is greater than 0.1%. U-net architecture<sup>[4]</sup>, shown in figure below, consists of two parts: encoder and decoder. Encoder part consists of 3x3 convolutional layers and 2x2 max pooling layers. However, decoder part consists of 2x2 transposed 2d convolutions and 1x1 up convolutional layers. U-net gives the output image of the same size as of input image.<br><br>
 **Model**<br><br>
 ![](images/Architectures/phase1/UNet.png)
 <br><br>**Results**<br><br>
@@ -80,7 +81,7 @@ We designed separate models for each task. This allowed us to ensure that we don
 <br><br>Since all the predicted labels were related to each other in one way or the other, hence, sharing the updated weights to train all the models simultaneously might improve the results.
 
 #### Multi-task Learning
-In order to train our task specific models more efficiently we used multi task learning. This method allows different models to share weights with each other and allows the models to generalize better. We used trained VGG16 as backbone of the multi-task architecture and the sub-networks all had similar architecture except for the last dense layer of these subnets. In the last layer softmax with binary cross entropy was used for multi-class problems (prediction of building density, greenery sparsity and layout)  and sigmoid with categorical cross entropy was used for multi-label problem(Prediction of Exposed Soil, Large buildings grass and trees). Results obtained for different experiments are shown below:<br><br>
+In order to train our task specific models more efficiently we used multi task learning<sup>[5]</sup>. This method allows different models to share weights with each other and allows the models to generalize better. We used trained VGG16 as backbone of the multi-task architecture and the sub-networks all had similar architecture except for the last dense layer of these subnets. In the last layer softmax with binary cross entropy was used for multi-class problems (prediction of building density, greenery sparsity and layout)  and sigmoid with categorical cross entropy was used for multi-label problem(Prediction of Exposed Soil, Large buildings grass and trees). Results obtained for different experiments are shown below:<br><br>
 
 **Results**<br><br>
 ![](images/Results/phase2/Results_experiment3.png)
@@ -99,3 +100,11 @@ Each image in our training dataset had a label vector of length 12. To implement
 ## Conclusion
 We tried to solve a challenging task of classiﬁcation of planned and unplanned developments. Overlapping features of these localities makes the job at hand difﬁcult. We have introduced a dataset capturing diverse geographical regions of Pakistan having different buildings density, greenery density, regular or irregular buildings layout and other minor features that could help,develop a generalized model to solve the classiﬁcation problem at hand. Our ﬁnal solution, multi-task learning using VGG-16 as backbone, allows us to capture features that are equally important for detection of different objects speciﬁc to planned /unplannedlocalities. These features are then optimized for speciﬁc object detections using the branching sub-nets. Using these branching sub-nets, we can identify areas having high building density, areas with regular buildings layout and patches with dense greenery. We can improve our results by utilizing a pixel level labelled dataset. A larger dataset would also give us room to train deep networks and achieve better accuracy. Furthermore, we can utilize the results generated from sub-nets and feed them to Analytic hierarchy process (AHP) to generate planned development index which would score a satellite image to be called a planned locality or unplanned locality. This approach could help us identify the most important features that contribute towards classiﬁcation of a locality as planned or unplanned development. AHP ﬁnds the objects that maximizes the planned development index of an image
 
+## References
+1. Murtaza, Kashif, Sohaib Khan, and Nasir M. Rajpoot. "VillageFinder: Segmentation of Nucleated Villages in Satellite Imagery." In BMVC, pp. 1-11. 2009.
+2. Iglovikov, Vladimir, and Alexey Shvets. "Ternausnet: U-net with vgg11 encoder pre-trained on imagenet for image segmentation." arXiv preprint arXiv:1801.05746 (2018).
+3. Zhang, Yu, and Qiang Yang. "A survey on multi-task learning." arXiv preprint arXiv:1707.08114 (2017).
+
+
+#### Team Members
+@nadeemriaz305
