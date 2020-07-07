@@ -114,7 +114,3 @@ We tried to solve a challenging task of classiﬁcation of planned and unplanned
 <a href="https://github.com/nadeemriaz305"><img src="https://avatars1.githubusercontent.com/u/21328955?s=400&v=4" title="H.M Nadeem" width="80" height="80"></a>
 
 [//]: contributor-faces
-
-### License
-
-MIT ©
