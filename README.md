@@ -1,4 +1,4 @@
-<sup>This repository contains code and results for the Course Project by Deep Learning Spring 2020 course offered at Information Technology University, Lahore, Pakistan. This repository is only for learning purposes and is not intended to be used for commercial purposes.http://im.itu.edu.pk/deep-learning-spring-2020/</sup>
+<sup>This webpage contains code and results for the Course Project by Deep Learning Spring 2020 course offered at Information Technology University, Lahore, Pakistan. This webpage is only for learning purposes and is not intended to be used for commercial purposes. http://im.itu.edu.pk/deep-learning-spring-2020/</sup>
 
 ## Overview
 This blog post is going to be pretty long! Here’s an overview of the different sections. If you want to skip ahead, just click the section title to go there.
