@@ -22,7 +22,7 @@ We have mainly used Python, NumPy and Keras to implement our solution. All our e
   
 ## Dataset
 For this research project we have used two different datasets. The first one is called Village Finder <sup>[1]()</sup>. We used this dataset to train a model for building segmentation. To train our multi task learning model we had compiled a separate data set containing satellite images of different cities of pakistan.
-
+ 
 ### Village Finder
 Village Finder Dataset contains 3566 images where each image is of 256 x 256 pixels. Corresponding to each image we have masked images that act as labels for building segments in that image. We used this dataset to train a model for building segmentation. This model is later utilized to extract images containing built structures during compilation of  our main dataset for this project.
 
