@@ -114,3 +114,5 @@ We tried to solve a challenging task of classiﬁcation of planned and unplanned
 <a href="https://github.com/nadeemriaz305"><img src="https://avatars1.githubusercontent.com/u/21328955?s=400&v=4" title="H.M Nadeem" width="80" height="80"></a>
 
 [//]: contributor-faces
+
+<sup>We are thankful for the guidance provided by [Dr.Mohsin](https://itu.edu.pk/faculty-itu/mohsen-ali/) and all the TAs for Deep Learning (spring 2020) especially Mr. Fasi Ur Rehman</sup>
